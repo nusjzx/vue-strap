@@ -29,15 +29,15 @@ module.exports = {
 
     el.dataset.isShown = 'true';
     el.style.position = 'relative';
-    let message = el.getAttribute('alt') || 'Expand Content';
-    let $content = jQuery(`<div class="content"></div>`);
+    const message = el.getAttribute('alt') || 'Expand Content';
+    const $content = jQuery(`<div class="content"></div>`);
     jQuery(el).contents().appendTo($content);
     jQuery(el).empty();
     jQuery(el).append($content);
     jQuery(el).attr('class', `${el.className} closeable-wrapper`);
-    let $closeButton = jQuery('<span class="closeable-button label label-default hidden-print" style="display: none; position: absolute; top: -15px; left: -15px; cursor: pointer;background: #d9534f;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>');
+    const $closeButton = jQuery('<span class="closeable-button label label-default hidden-print" style="display: none; position: absolute; top: -15px; left: -15px; cursor: pointer;background: #d9534f;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>');
     jQuery(el).append($closeButton);
-    let $showLabel = jQuery(`<a class="closeable-show hidden-print" style="display: none; cursor: pointer;text-decoration: underline">${message}</a>`);
+    const $showLabel = jQuery(`<a class="closeable-show hidden-print" style="display: none; cursor: pointer;text-decoration: underline">${message}</a>`);
     jQuery(el).append($showLabel);
     $closeButton.click(onClose);
     $showLabel.click(onShow);
